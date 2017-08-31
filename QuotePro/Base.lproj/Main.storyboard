@@ -1,14 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MIr-yH-5i8">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +20,103 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qP9-78-K1c">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="qP9-78-K1c" secondAttribute="trailing" id="Llx-WZ-W3p"/>
+                            <constraint firstItem="qP9-78-K1c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OsD-i5-Bnd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qP9-78-K1c" secondAttribute="bottom" id="WtF-3N-aga"/>
+                            <constraint firstItem="qP9-78-K1c" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rTV-Yd-rZK"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1Zg-zo-iUZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="I3f-Uo-rcR">
+                            <connections>
+                                <segue destination="tbT-7W-g5b" kind="show" id="owA-Sn-hof"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="920.79999999999995" y="139.880059970015"/>
+        </scene>
+        <!--Quote View Controller-->
+        <scene sceneID="QB6-rw-tFB">
+            <objects>
+                <viewController id="tbT-7W-g5b" customClass="QuoteViewController" customModule="QuotePro" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zQE-XQ-tiq"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ya7-Ec-Vg2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RjE-wE-pE9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cYH-eo-nvk">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Image" id="tPa-ui-gSo">
+                                        <connections>
+                                            <action selector="randomImageButton:" destination="tbT-7W-g5b" id="1XV-VC-7Vf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="7pX-Qt-y5s"/>
+                                    <barButtonItem title="Quote" id="eiu-dW-GWm">
+                                        <connections>
+                                            <action selector="randomQuoteButton:" destination="tbT-7W-g5b" id="b27-Ib-O0o"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SYK-aP-AZZ"/>
+                                    <barButtonItem title="Save" id="zZR-NI-96b"/>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="tF4-zM-z7Q" customClass="QuoteView" customModule="QuotePro" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tF4-zM-z7Q" firstAttribute="top" secondItem="zQE-XQ-tiq" secondAttribute="bottom" id="CID-sE-t2v"/>
+                            <constraint firstAttribute="trailing" secondItem="cYH-eo-nvk" secondAttribute="trailing" id="CQy-nA-tet"/>
+                            <constraint firstItem="Ya7-Ec-Vg2" firstAttribute="top" secondItem="cYH-eo-nvk" secondAttribute="bottom" id="Mrf-Yb-ia0"/>
+                            <constraint firstItem="tF4-zM-z7Q" firstAttribute="leading" secondItem="RjE-wE-pE9" secondAttribute="leading" id="O4i-iB-VrI"/>
+                            <constraint firstItem="cYH-eo-nvk" firstAttribute="leading" secondItem="RjE-wE-pE9" secondAttribute="leading" id="ddO-mJ-On9"/>
+                            <constraint firstAttribute="trailing" secondItem="tF4-zM-z7Q" secondAttribute="trailing" id="jWc-nn-Aj6"/>
+                            <constraint firstItem="cYH-eo-nvk" firstAttribute="top" secondItem="tF4-zM-z7Q" secondAttribute="bottom" id="tzc-NN-2TA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="quoteView" destination="tF4-zM-z7Q" id="tDm-gK-jDa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hz1-0e-UK1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864.8" y="139.880059970015"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mxV-NJ-SY9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MIr-yH-5i8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2hT-ld-CPL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Nh1-bg-S0z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Da-8H-SP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-18.399999999999999" y="139.880059970015"/>
         </scene>
     </scenes>
 </document>
