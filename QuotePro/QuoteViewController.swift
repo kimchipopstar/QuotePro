@@ -14,6 +14,9 @@ class QuoteViewController: UIViewController {
     
     var quoteContainer:Quote = Quote()
     var photoContainer:Photo = Photo()
+    var photoQuote:PhotoQuote = PhotoQuote()
+    
+    var delegate:PhotoQuoteDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,5 +110,14 @@ class QuoteViewController: UIViewController {
         
     }
     
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        
+        self.photoQuote.photo = self.photoContainer
+        self.photoQuote.quote = self.quoteContainer
+        self.delegate?.myPhotoQuote(photoQuote: self.photoQuote)
+        
+        
+    }
+
 
 }

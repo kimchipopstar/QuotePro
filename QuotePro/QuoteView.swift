@@ -42,6 +42,7 @@ class QuoteView: UIView {
         quoteLabel.text = quote.quoteText
         authorLabel.text = quote.quoteAuthor
         
+        
     }
 
 }
